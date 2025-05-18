@@ -1,29 +1,28 @@
 package com.transporte.proyecto.dtos;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
 import com.transporte.proyecto.entities.Billete;
 
 public class BilleteDTO {
 	private Long id;
-    private LocalDate fecha;
-    private LocalTime horaSalida;
-    private LocalTime horaLlegada;
-    private Double precio;
-    private String numeroAsiento;
-    private String origen;
-    private String destino;
+	private String fecha;
+	private String hora;
+	private Double precio;
+	private String origen;
+	private String destino;
+	private String tipoVehiculo;
+	
+	public BilleteDTO() {
+	}
 
-    public BilleteDTO(Billete billete) {
-        this.id = billete.getId();
-        this.fecha = billete.getFecha();
-        this.horaSalida = billete.getHoraSalida();
-        this.horaLlegada = billete.getHoraLlegada();
-        this.precio = billete.getPrecio();
-        this.numeroAsiento = billete.getNumeroAsiento();
-        this.origen = billete.getRuta().getOrigen().toString();
-        this.destino = billete.getRuta().getDestino().toString();
-    }
+	public BilleteDTO(Billete billete) {
+		this.id = billete.getId();
+		this.fecha = billete.getFecha();
+		this.hora = billete.getHora();
+		this.precio = billete.getPrecio();
+		this.origen = billete.getOrigen().toString();
+		this.destino = billete.getDestino().toString();
+		this.tipoVehiculo = billete.getTipoVehiculo().toString();
+	}
 
 	public Long getId() {
 		return id;
@@ -33,28 +32,20 @@ public class BilleteDTO {
 		this.id = id;
 	}
 
-	public LocalDate getFecha() {
+	public String getFecha() {
 		return fecha;
 	}
 
-	public void setFecha(LocalDate fecha) {
+	public void setFecha(String fecha) {
 		this.fecha = fecha;
 	}
 
-	public LocalTime getHoraSalida() {
-		return horaSalida;
+	public String getHora() {
+		return hora;
 	}
 
-	public void setHoraSalida(LocalTime horaSalida) {
-		this.horaSalida = horaSalida;
-	}
-
-	public LocalTime getHoraLlegada() {
-		return horaLlegada;
-	}
-
-	public void setHoraLlegada(LocalTime horaLlegada) {
-		this.horaLlegada = horaLlegada;
+	public void setHora(String hora) {
+		this.hora = hora;
 	}
 
 	public Double getPrecio() {
@@ -63,14 +54,6 @@ public class BilleteDTO {
 
 	public void setPrecio(Double precio) {
 		this.precio = precio;
-	}
-
-	public String getNumeroAsiento() {
-		return numeroAsiento;
-	}
-
-	public void setNumeroAsiento(String numeroAsiento) {
-		this.numeroAsiento = numeroAsiento;
 	}
 
 	public String getOrigen() {
@@ -87,5 +70,13 @@ public class BilleteDTO {
 
 	public void setDestino(String destino) {
 		this.destino = destino;
+	}
+
+	public String getTipoVehiculo() {
+		return tipoVehiculo;
+	}
+
+	public void setTipoVehiculo(String tipoVehiculo) {
+		this.tipoVehiculo = tipoVehiculo;
 	}
 }
