@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import com.transporte.proyecto.dtos.PasajeroDTO;
 import com.transporte.proyecto.entities.Pasajero;
 import com.transporte.proyecto.repositories.PasajeroRepository;
 
@@ -13,11 +14,23 @@ public class PasajeroServiceManager implements PasajeroService{
 
 	@Autowired
 	PasajeroRepository pasajeroRepository;
-    @Override
-    @Transactional
-	public Pasajero save(Pasajero pasajero) {
-    	return this.pasajeroRepository.save(pasajero);
-	}
+	
+	@Override
+	public PasajeroDTO save(PasajeroDTO pasajeroDTO) {
+        // Convertir DTO a entidad
+        Pasajero pasajero = new Pasajero();
+        pasajero.setNombre(pasajeroDTO.getNombre());
+        pasajero.setApellidoPaterno(pasajeroDTO.getApellidoPaterno());
+        pasajero.setApellidoMaterno(pasajeroDTO.getApellidoMaterno());
+        pasajero.setTelefono(pasajeroDTO.getTelefono());
+        pasajero.setEmail(pasajeroDTO.getEmail());
+
+        // Guardar la entidad
+        Pasajero newPasajero = this.pasajeroRepository.save(pasajero);
+
+        // Convertir la entidad guardada de vuelta a DTO
+        return new PasajeroDTO(newPasajero);
+    }
 
 	@Override
 	@Transactional(readOnly = true)
