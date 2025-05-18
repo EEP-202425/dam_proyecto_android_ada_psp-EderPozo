@@ -1,127 +1,100 @@
 package com.transporte.proyecto.entities;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "billete")
 public class Billete {
-	@Id 
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
 
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "ruta_id")
-	@NotNull(message = "La ruta no puede ser nula")
-	private Ruta ruta;
-	
-	@NotNull(message = "La fecha no puede ser nula")
-	private LocalDate fecha;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	@NotNull(message = "La hora de salida no puede ser nula")
-	private LocalTime horaSalida;
+    @NotNull(message = "La fecha no puede ser nula")
+    private String fecha;
 
-	@NotNull(message = "La hora de llegada no puede ser nula")
-	private LocalTime horaLlegada;
+    @NotNull(message = "La hora no puede ser nula")
+    private String hora;
 
-	private Double precio;
+    @NotNull(message = "La ciudad de origen no puede ser nula")
+    private Ciudad origen;
 
-	private String numeroAsiento;
+    @NotNull(message = "La ciudad de destino no puede ser nula")
+    private Ciudad destino;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "pasajero_id", nullable = false)
-	@JsonBackReference
-	private Pasajero pasajero;
+    @NotNull(message = "El tipo de vehículo no puede ser nulo")
+    private TipoVehiculo tipoVehiculo;
 
-	public Billete() {
-	}
-	
-	public Billete(Long id, Ruta ruta, @NotNull(message = "La fecha no puede ser nula") LocalDate fecha,
-			@NotNull(message = "La hora de salida no puede ser nula") LocalTime horaSalida,
-			@NotNull(message = "La hora de llegada no puede ser nula") LocalTime horaLlegada, Double precio,
-			String numeroAsiento, Pasajero pasajero) {
-		super();
-		this.id = id;
-		this.ruta = ruta;
-		this.fecha = fecha;
-		this.horaSalida = horaSalida;
-		this.horaLlegada = horaLlegada;
-		this.precio = precio;
-		this.numeroAsiento = numeroAsiento;
-		this.pasajero = pasajero;
-	}
+    private Double precio;
 
-	public Long getId() {
-		return id;
-	}
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "pasajero_id")
+    private Pasajero pasajero;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    // Getters y Setters
 
-	public Ruta getRuta() {
-		return ruta;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public void setRuta(Ruta ruta) {
-		this.ruta = ruta;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public LocalTime getHoraSalida() {
-		return horaSalida;
-	}
+    public String getFecha() {
+        return fecha;
+    }
 
-	public void setHoraSalida(LocalTime horaSalida) {
-		this.horaSalida = horaSalida;
-	}
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
 
-	public LocalDate getFecha() {
-		return fecha;
-	}
+    public String getHora() {
+        return hora;
+    }
 
-	public void setFecha(LocalDate fecha) {
-		this.fecha = fecha;
-	}
+    public void setHora(String hora) {
+        this.hora = hora;
+    }
 
-	public String getNumeroAsiento() {
-		return numeroAsiento;
-	}
+    public Ciudad getOrigen() {
+        return origen;
+    }
 
-	public void setNumeroAsiento(String numeroAsiento) {
-		this.numeroAsiento = numeroAsiento;
-	}
+    public void setOrigen(Ciudad origen) {
+        this.origen = origen;
+    }
 
-	public Pasajero getPasajero() {
-		return pasajero;
-	}
+    public Ciudad getDestino() {
+        return destino;
+    }
 
-	public void setPasajero(Pasajero pasajero) {
-		this.pasajero = pasajero;
-	}
+    public void setDestino(Ciudad destino) {
+        this.destino = destino;
+    }
 
-	public LocalTime getHoraLlegada() {
-		return horaLlegada;
-	}
+    public TipoVehiculo getTipoVehiculo() {
+        return tipoVehiculo;
+    }
 
-	public void setHoraLlegada(LocalTime horaLlegada) {
-		this.horaLlegada = horaLlegada;
-	}
+    public void setTipoVehiculo(TipoVehiculo tipoVehiculo) {
+        this.tipoVehiculo = tipoVehiculo;
+    }
 
-	public Double getPrecio() {
-		return precio;
-	}
+    public Double getPrecio() {
+        return precio;
+    }
 
-	public void setPrecio(Double precio) {
-		this.precio = precio;
-	}
+    public void setPrecio(Double precio) {
+        this.precio = precio;
+    }
+
+    public Pasajero getPasajero() {
+        return pasajero;
+    }
+
+    public void setPasajero(Pasajero pasajero) {
+        this.pasajero = pasajero;
+    }
 }

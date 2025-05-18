@@ -26,8 +26,13 @@ public class Pasajero {
 	@NotNull(message = "El apellido paterno no puede ser nulo")
 	private String apellidoPaterno;
 	
+	@NotNull(message = "El apellido materno no puede ser nulo")
 	private String apellidoMaterno;
+	
+	@NotNull(message = "El teléfono no puede ser nulo")
 	private String telefono;
+	
+	@NotNull(message = "El email no puede ser nulo")
 	private String email;
 		
 	@OneToMany(mappedBy = "pasajero", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
@@ -38,8 +43,10 @@ public class Pasajero {
 	}
 
 	public Pasajero(Long id, @NotNull(message = "El nombre no puede ser nulo") String nombre,
-			@NotNull(message = "El apellido paterno no puede ser nulo") String apellidoPaterno, String apellidoMaterno,
-			String telefono, String email) {
+			@NotNull(message = "El apellido paterno no puede ser nulo") String apellidoPaterno, 
+			@NotNull(message = "El apellido materno no puede ser nulo") String apellidoMaterno,
+			@NotNull(message = "El teléfono no puede ser nulo")String telefono, 
+			@NotNull(message = "El email no puede ser nulo")String email) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
