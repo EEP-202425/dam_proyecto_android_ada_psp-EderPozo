@@ -1,5 +1,6 @@
 package com.transporte.proyecto.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 
@@ -17,12 +18,15 @@ public class Billete {
     @NotNull(message = "La hora no puede ser nula")
     private String hora;
 
+    @Enumerated(EnumType.STRING)
     @NotNull(message = "La ciudad de origen no puede ser nula")
     private Ciudad origen;
 
+    @Enumerated(EnumType.STRING)
     @NotNull(message = "La ciudad de destino no puede ser nula")
     private Ciudad destino;
 
+    @Enumerated(EnumType.STRING)
     @NotNull(message = "El tipo de vehículo no puede ser nulo")
     private TipoVehiculo tipoVehiculo;
 
@@ -30,6 +34,7 @@ public class Billete {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "pasajero_id")
+    @JsonBackReference
     private Pasajero pasajero;
 
     // Getters y Setters
