@@ -1,4 +1,3 @@
-
 package com.transporte.frontend.ui
 
 import android.app.DatePickerDialog
@@ -32,13 +31,13 @@ fun ReservaFormScreen(
     Column(modifier = Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
         Text("Selecciona tu reserva", style = MaterialTheme.typography.titleLarge)
 
-        DropdownField("Origen", origen, ciudades) { origen = it }
-        DropdownField("Destino", destino, ciudades) { destino = it }
+        DropdownField("Origen", origen, ciudades.filter { it != destino }) { origen = it }
+        DropdownField("Destino", destino, ciudades.filter { it != origen }) { destino = it }
         DropdownField("Tipo de Transporte", tipo, tipos) { tipo = it }
 
         Button(onClick = {
             DatePickerDialog(context, { _, y, m, d ->
-                fecha = "$d/${m+1}/$y"
+                fecha = "$d/${m + 1}/$y"
             }, today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH)).show()
         }) {
             Text(if (fecha.isEmpty()) "Seleccionar Fecha" else "Fecha: $fecha")
@@ -62,7 +61,8 @@ fun ReservaFormScreen(
 
         Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
             Button(onClick = {
-                if (origen.isNotEmpty() && destino.isNotEmpty() && tipo.isNotEmpty() && fecha.isNotEmpty() && hora.isNotEmpty() && precio.isNotEmpty()) {
+                if (origen.isNotEmpty() && destino.isNotEmpty() && tipo.isNotEmpty() &&
+                    fecha.isNotEmpty() && hora.isNotEmpty() && precio.isNotEmpty()) {
                     onContinuar(origen, destino, tipo, fecha, hora, precio)
                 }
             }) {

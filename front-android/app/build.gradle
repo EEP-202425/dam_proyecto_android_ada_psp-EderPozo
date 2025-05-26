@@ -6,12 +6,12 @@ plugins {
 
 android {
     namespace 'com.transporte.frontend'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.transporte.frontend"
         minSdk 24
-        targetSdk 33
+        targetSdk 34
         versionCode 1
         versionName "1.0"
     }
@@ -21,7 +21,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion '1.4.7'
+        kotlinCompilerExtensionVersion '1.4.8'
     }
 
     kotlinOptions {

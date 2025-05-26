@@ -16,7 +16,8 @@ import android.util.Log
 @Composable
 fun FinalizarReservaScreen(
     reserva: State<ReservaCompleta?>,
-    onVolverInicio: () -> Unit
+    onVolverInicio: () -> Unit,
+    onVerReservas: () -> Unit
 ) {
     val context = LocalContext.current
     var mensaje by remember { mutableStateOf("Procesando reserva...") }
@@ -56,8 +57,13 @@ fun FinalizarReservaScreen(
 
         if (enviada) {
             Spacer(modifier = Modifier.height(24.dp))
-            Button(onClick = onVolverInicio) {
-                Text("Volver al Inicio")
+            Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
+                Button(onClick = onVolverInicio) {
+                    Text("Volver al Inicio")
+                }
+                Button(onClick = onVerReservas) {
+                    Text("Ver Reservas")
+                }
             }
         }
     }
