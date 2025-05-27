@@ -6,25 +6,24 @@ ________________________________________________________________________________
 
 2) REQUISITOS IMPLEMENTADOS:
 
-2.1. Aplicación Android
-RF-AN-02, RF-AN-04, RF-AN-10
+2.1. Aplicación Android: RF-AN-02, RF-AN-04, RF-AN-10 --> AGREGADOS: RF-AN-01, RF-AN-03
 
-2.2. API REST
-RF-API-01, RF-API-02, RF-API-03, RF-API-04, RF-API-05, RF-API-09
+2.2. API REST: RF-API-01, RF-API-02, RF-API-03, RF-API-04, RF-API-05, RF-API-09
 
-2.3. Acceso a Datos
-RF-BD-01, RF-BD-02, RF-BD-03, RF-BD-04, RF-BD-05, RF-BD-06, RF-BD-07
+2.3. Acceso a Datos: RF-BD-01, RF-BD-02, RF-BD-03, RF-BD-04, RF-BD-05, RF-BD-06, RF-BD-07
 
-3.1. Arquitectura y Desarrollo
-RT-ARQ-01, RT-ARQ-02, RT-ARQ-03, RT-ARQ-05, RT-ARQ-06, RT-ARQ-07, RT-ARQ-08
+3.1. Arquitectura y Desarrollo: RT-ARQ-01, RT-ARQ-02, RT-ARQ-03, RT-ARQ-05, RT-ARQ-06, RT-ARQ-07, RT-ARQ-08
 
-3.2. Seguridad
-RT-SEG-01, RT-SEG-02
+3.2. Seguridad: RT-SEG-01, RT-SEG-02
 
-4. Funcionalidades Adicionales
-FA-01
+4.1. Funcionalidades Adicionales: FA-01
 
 ___________________________________________________________________________________________________________
 
 3) ENLACE AL VIDEO:
+NUEVO VIDEO - RECUPERACIÓN:
+https://eepmad-my.sharepoint.com/:v:/g/personal/eder-pozo1_eep-igroup_com/Eb1mSeoOY0FHtGfKpPsDMaoBhA-1LGlniwWw-JlbjBpPRw?e=YYJuF3&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D
+
+
+1ER VIDEO ENTREGA:
 https://eepmad-my.sharepoint.com/personal/eder-pozo1_eep-igroup_com/_layouts/15/stream.aspx?id=%2Fpersonal%2Feder%2Dpozo1%5Feep%2Digroup%5Fcom%2FDocuments%2FApp%2DReservaBilletesTransporte%2Ewebm&nav=%7B%22defaultNavPanel%22%3A%7B%22pluginName%22%3A%22MediaSettingsLayer%22%7D%7D&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2Ed506431e%2D722b%2D422e%2Dbd34%2D8c71bb61d89f
